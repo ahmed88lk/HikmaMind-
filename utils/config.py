@@ -20,7 +20,7 @@ def configure_api():
     # Create and return client instance directly (no configure method needed)
     return genai.Client(api_key=api_key)
 
-# Modèles disponibles
+# Available models
 MODELS = {
     "default": "models/gemini-2.0-flash",
     "advanced": "models/gemini-2.5-flash-preview-04-17",
@@ -53,22 +53,22 @@ def generate_image(client, prompt):
     except Exception as e:
         return str(e), None
 
-# Styles d'analogies disponibles
+# Analogy styles available
 ANALOGY_STYLES = {
-    "Tech": "Utilisez des analogies technologiques (ordinateurs, réseaux, etc.)",
-    "Nature": "Utilisez des analogies liées à la nature (écosystèmes, animaux, etc.)",
-    "Cuisine": "Utilisez des analogies culinaires (recettes, ingrédients, etc.)",
-    "Sport": "Utilisez des analogies sportives (règles du jeu, stratégies, etc.)",
-    "Pop Culture": "Utilisez des références à la culture populaire (films, séries, etc.)"
+    "Tech": "Use technology analogies (computers, networks, etc.)",
+    "Nature": "Use nature-related analogies (ecosystems, animals, etc.)",
+    "Cooking": "Use culinary analogies (recipes, ingredients, etc.)",
+    "Sports": "Use sports analogies (game rules, strategies, etc.)",
+    "Pop Culture": "Use popular culture references (movies, series, etc.)"
 }
 
-# Champs d'expertise disponibles
+# Available fields of expertise
 FIELDS = [
-    "Informatique", "Intelligence Artificielle", "Développement Web", 
-    "Science des Données", "Cybersécurité", "Médecine", "Biologie", 
-    "Physique", "Mathématiques", "Psychologie", "Économie", 
-    "Droit", "Philosophie", "Autre"
+    "Computer Science", "Artificial Intelligence", "Web Development", 
+    "Data Science", "Cybersecurity", "Medicine", "Biology", 
+    "Physics", "Mathematics", "Psychology", "Economics", 
+    "Law", "Philosophy", "Other"
 ]
 
-# Niveaux de connaissances
-KNOWLEDGE_LEVELS = ["Novice", "Intermédiaire", "Expert"]
+# Knowledge levels
+KNOWLEDGE_LEVELS = ["Novice", "Intermediate", "Expert"]

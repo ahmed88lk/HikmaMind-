@@ -4,55 +4,56 @@ from typing import Optional
 
 @dataclass
 class UserProfile:
-    """Classe représentant le profil d'un utilisateur"""
-    field: str = "Informatique"
-    knowledge_level: str = "Intermédiaire"
+    """Class representing a user profile"""
+    field: str = "Computer Science"
+    knowledge_level: str = "Intermediate"
     analogy_style: str = "Tech" 
     include_citations: bool = False
     
     def is_complete(self) -> bool:
-        """Vérifie si le profil est complet"""
+        """Check if the profile is complete"""
         return bool(self.field and self.knowledge_level and self.analogy_style is not None)
     
     def get_prompt_modifier(self) -> str:
-        """Retourne une chaîne représentant les modifications de prompt basées sur le profil"""
+        """Return a string representing prompt modifications based on profile"""
         modifiers = []
         
-        # Adaptations selon le niveau de connaissance
+        # Adaptations based on knowledge level
         if self.knowledge_level == "Novice":
-            modifiers.append("Utilisez des analogies très simples et évitez tout jargon technique.")
-            modifiers.append("Expliquez comme à quelqu'un qui découvre le sujet.")
-        elif self.knowledge_level == "Intermédiaire":
-            modifiers.append("Utilisez quelques termes techniques mais expliquez-les.")
-            modifiers.append("Établissez des liens avec des concepts de base du domaine.")
+            modifiers.append("Use very simple analogies and avoid technical jargon.")
+            modifiers.append("Explain as to someone completely new to the subject.")
+        elif self.knowledge_level == "Intermediate":
+            modifiers.append("Use some technical terms but explain them.")
+            modifiers.append("Connect with basic domain concepts.")
         elif self.knowledge_level == "Expert":
-            modifiers.append("Vous pouvez utiliser du jargon technique sans longues explications.")
-            modifiers.append("Faites référence à des concepts avancés dans le domaine.")
+            modifiers.append("Technical jargon is acceptable without lengthy explanations.")
+            modifiers.append("Reference advanced concepts in the field.")
         
-        # Adaptations selon le style d'analogie
+        # Adaptations based on analogy style
         if self.analogy_style == "Tech":
-            modifiers.append("Utilisez des analogies liées aux ordinateurs, réseaux et technologies.")
+            modifiers.append("Use analogies related to computers, networks and technologies.")
         elif self.analogy_style == "Nature":
-            modifiers.append("Utilisez des analogies liées à la nature, aux animaux et aux écosystèmes.")
-        elif self.analogy_style == "Cuisine":
-            modifiers.append("Utilisez des analogies liées à la cuisine, aux recettes et aux ingrédients.")
-        elif self.analogy_style == "Sport":
-            modifiers.append("Utilisez des analogies liées aux sports, aux règles du jeu et aux stratégies.")
+            modifiers.append("Use analogies related to nature, animals and ecosystems.")
+        elif self.analogy_style == "Cooking":
+            modifiers.append("Use analogies related to cooking, recipes and ingredients.")
+        elif self.analogy_style == "Sports":
+             modifiers.append("Use analogies related to sports, games, training, and athletic performance.")
         elif self.analogy_style == "Pop Culture":
-            modifiers.append("Utilisez des références à des films, séries, jeux vidéo populaires.")
-            
-        return "\n".join(modifiers)
+            modifiers.append("Use analogies related to movies, series, and popular culture references.")
 
 def initialize_session_state():
-    """Initialise les variables d'état de session si nécessaires"""
+    """Initialize session state variables if necessary"""
     if 'user_profile' not in st.session_state:
         st.session_state.user_profile = UserProfile()
 
 def save_profile(profile: UserProfile):
-    """Enregistre le profil utilisateur dans l'état de la session"""
+    """Save user profile in session state"""
     st.session_state.user_profile = profile
 
 def get_current_profile() -> UserProfile:
-    """Récupère le profil utilisateur actuel"""
+    """Get current user profile"""
     initialize_session_state()
     return st.session_state.user_profile
+
+
+
