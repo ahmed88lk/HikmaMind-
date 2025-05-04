@@ -65,10 +65,7 @@ HikmaMind uses Google's Gemini AI to:
 - [Python dotenv](https://pypi.org/project/python-dotenv/) - Environment management
 - [HTTPX](https://www.python-httpx.org/) - API requests
 
-## 🙏 Acknowledgements
 
-- Developed by [Your Name] (https://github.com/YourUsername)
-- Special thanks to Google for the Gemini API
 
 ## 📄 License
 
