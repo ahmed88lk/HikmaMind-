@@ -23,11 +23,8 @@ HikmaMind is an intelligent research assistant that helps professionals, academi
 
 ### Installation
 
-1. Clone this repository:
-```bash
-git clone https://github.com/YourUsername/HikmaMind.git
-cd HikmaMind cd HikmaMind
-```
+
+
 
 2. Install the required packages:
 ```bash
